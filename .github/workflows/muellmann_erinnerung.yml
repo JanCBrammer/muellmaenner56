@@ -1,0 +1,21 @@
+name: Muellmann Erinnerung
+
+on:
+  schedule:
+    - cron: '0 8 * * 0' 
+  workflow_dispatch: 
+
+jobs:
+  send-reminder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: bash install.sh
+
+      - name: Send WhatsApp reminder
+        env:
+          WHATSAPP_PHONE: ${{ secrets.WHATSAPP_PHONE }}
+          PUPPETEER_EXECUTABLE_PATH: /usr/bin/chromium-browser
+        run: python send_reminder.py

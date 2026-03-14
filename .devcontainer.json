@@ -1,0 +1,26 @@
+{
+  "name": "muellmaenner56",
+  "image": "mcr.microsoft.com/devcontainers/base:bookworm",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": { "version": "3.13" },
+    "ghcr.io/devcontainers/features/node:1": { "version": "24" }
+  },
+  "postCreateCommand": "bash install.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "charliermarsh.ruff",
+        "dbaeumer.vscode-eslint",
+        "Anthropic.claude-code",
+        "streetsidesoftware.code-spell-checker",
+        "eamodio.gitlens"
+      ],
+      "settings": {
+                "[python]": {
+                    "editor.formatOnSave": true,
+                    "editor.defaultFormatter": "charliermarsh.ruff"
+                }
+            }
+    }
+  }
+}
